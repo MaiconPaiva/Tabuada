@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+</head>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(45deg, black, white);
+        width: 100vw;
+        height: 100vh;
+    }
+
+    div {
+        color: brown;
+        background: linear-gradient(45deg, white, black);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 80px;
+        border-radius: 20px;
+    }
+
+    button {
+        background-color: crimson;
+        border: none;
+        padding: 15px;
+        width: 80px;
+        border-radius: 20px;
+        font-size: 15px;
+        color: white;
+    }
+
+    button:hover {
+        background-color: tomato;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <button onclick="window.location.href='index.html'">Voltar</button>
+    <div id="tabuada-container"></div>
+
+    <script>
+        function mostrarTabuada() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const base = parseInt(urlParams.get('base'));
+            const tamanho = parseInt(urlParams.get('tamanho'));
+
+            if (isNaN(base) || isNaN(tamanho)) {
+                alert("Parâmetros Invalidos");
+                return;
+            }
+
+            const tabuadaContainer = document.getElementById("tabuada-container");
+
+            for (let i = 1; i <= tamanho; i++) {
+                const resultado = base * i;
+                const linhaTabuada = document.createElement("p");
+                linhaTabuada.textContent = `${base} x ${i} = ${resultado}`;
+                tabuadaContainer.appendChild(linhaTabuada);
+            }
+        }
+        mostrarTabuada();
+    </script>
+</body>
+
+</html>

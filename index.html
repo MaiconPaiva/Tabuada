@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+</head>
+<title>Tabuada</title>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(45deg, black, white);
+        width: 100vw;
+        height: 100vh;
+    }
+
+    div {
+        color: brown;
+        background: linear-gradient(45deg, white, black);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 80px;
+        border-radius: 20px;
+    }
+
+    input {
+        height: 30px;
+        width: 40px;
+        border-radius: 50px;
+        border: none;
+        outline: none;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    button {
+        background-color: crimson;
+        border: none;
+        padding: 15px;
+        width: 100%;
+        border-radius: 20px;
+        font-size: 15px;
+        color: white;
+    }
+
+    button:hover {
+        background-color: tomato;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div>
+        <h1>TABUADA</h1>
+        <label for="base">Base da Tabuada</label>
+        <input type="number" min="1" id="base"><br><br>
+        <label for="tamanho">Tamanho da Tabuada</label>
+        <input type="number" min="1" id="tamanho"><br><br>
+        <button onclick="exibirTabuada()">EXIBIR TABUADA</button>
+
+        <script>
+            function exibirTabuada() {
+                const base = parseInt(document.getElementById("base").value);
+                const tamanho = parseInt(document.getElementById("tamanho").value);
+
+                if (isNaN(base) || isNaN(tamanho)) {
+                    alert("Favor inserir valores válidos");
+                    return;
+                }
+
+                window.location.href = `tabuada.html?base=${base}&tamanho=${tamanho}`;
+            }
+        </script>
+    </div>
+</body>
+
+</html>
